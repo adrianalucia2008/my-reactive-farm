@@ -16,7 +16,9 @@ export default function Farm() {
   const [loadError, setLoadError] = useState(null);
 
   // Filtros UI
-  const [typeFilter, setTypeFilter] = useState("all");
+  const [typeFilter, setTypeFilter] = useState("cow");
+
+  
   const [statusFilter, setStatusFilter] = useState("all");
   const [query, setQuery] = useState("");
 
