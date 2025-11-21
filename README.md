@@ -146,3 +146,19 @@ Al escribir un número, la lista solo muestra animales con edad mayor o igual.
 Si no hay coincidencias, aparece mensaje de lista vacía.
 
 ---
+
+### 🔧 Actividad 3 — Mensaje de éxito
+
+**¿Que hizo?**
+
+* Limpiar el formulario al enviar
+
+Evita que el usuario tenga que borrar manualmente los inputs.
+
+Se implementó reiniciando el estado values después del onSubmit.
+
+**Mostrar mensaje de éxito**
+
+Proporciona feedback visual inmediato.
+
+> Se implementó usando un estado successMessage que desaparece automáticamente.
