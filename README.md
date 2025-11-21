@@ -122,3 +122,27 @@ Pues lo que se hizo fue cambiar la constante del archivo `Farm.jsx` de la carpet
 
 ---
 
+### 🔧 Actividad 2 — Nuevo filtro por edad
+Estado agregado
+
+
+
+> const [minAge, setMinAge] = useState("");
+
+
+Control agregado en la UI
+
+> Input numérico con value={minAge} y onChange={setMinAge}.
+
+Lógica de filtrado
+
+Filtra animales que tengan age >= minAge.
+
+> const byMinAge = !minAge || a.age >= Number(minAge);
+
+## Qué ocurre visualmente
+
+Al escribir un número, la lista solo muestra animales con edad mayor o igual.
+Si no hay coincidencias, aparece mensaje de lista vacía.
+
+---

@@ -16,9 +16,8 @@ export default function Farm() {
   const [loadError, setLoadError] = useState(null);
 
   // Filtros UI
-  const [typeFilter, setTypeFilter] = useState("cow");
-
-  
+  const [minAge, setMinAge] = useState("");
+  const [typeFilter, setTypeFilter] = useState("all");
   const [statusFilter, setStatusFilter] = useState("all");
   const [query, setQuery] = useState("");
 
@@ -72,9 +71,13 @@ export default function Farm() {
         a.type?.toLowerCase().includes(q) ||
         String(a.weight).includes(q) ||
         String(a.age).includes(q);
-      return byType && byStatus && byQuery;
+
+      // Nuevo filtro por edad mínima
+      const byMinAge = !minAge || a.age >= Number(minAge);
+
+      return byType && byStatus && byQuery && byMinAge;
     });
-  }, [animals, typeFilter, statusFilter, query]);
+  }, [animals, typeFilter, statusFilter, query, minAge]);
 
   return (
     <Layout title="My Reactive Farm 🐄🌾">
@@ -102,6 +105,20 @@ export default function Farm() {
             <AnimalList animals={filteredAnimals}>
               {/* Controls (composición) */}
               <div className="flex flex-wrap items-center gap-3">
+                {/* Min Age filter */}
+                <label className="sr-only" htmlFor="min-age">
+                  Min Age
+                </label>
+                <input
+                  id="min-age"
+                  type="number"
+                  min="0"
+                  placeholder="Min age"
+                  value={minAge}
+                  onChange={(e) => setMinAge(e.target.value)}
+                  className="w-24 rounded-md border border-gray-300 px-2 py-1 text-sm outline-none focus:ring-2 focus:ring-green-600"
+                />
+
                 {/* Search */}
                 <label className="sr-only" htmlFor="search">
                   Search
